@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
-const uploadRoutes = require("./routes/upload.routes");
+const uploadRoutes = require("./routes/upload");
 const settingsRoutes = require("./routes/settings.routes");
 
 const app = express();
@@ -10,9 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//serve uploaded models as static files
-app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
-
+// serve uploaded models as static files
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// routes
 app.use("/api/upload", uploadRoutes);
 app.use("/api/settings", settingsRoutes);
 

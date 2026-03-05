@@ -62,10 +62,13 @@ if (ext !== "glb" && ext !== "gltf") {
 
     try {
       const res = await uploadModel(formData);
+      console.log(res.data);
+
       setModelUrl(`https://threed-product-viewer-backend.onrender.com${res.data.url}`);
     } catch (error) {
       console.log("Upload error", error);
     }
+    
   };
 
   return (
