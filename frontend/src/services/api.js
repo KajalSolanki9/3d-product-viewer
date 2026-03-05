@@ -6,10 +6,10 @@ const API = axios.create({
 });
 
 export const uploadModel = (formData) =>
-  API.post("/upload", formData);
+  API.post("/api/upload", formData);
 
 export const saveSettings = (data) =>
-  API.post("/settings", data);
+  API.post("/api/settings", data);
 
 export const getSettings = () =>
-  API.get("/settings");
+  API.get("/api/settings");
