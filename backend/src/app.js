@@ -7,13 +7,8 @@ const settingsRoutes = require("./routes/settings.routes");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://mern-3d-product-viewer.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);app.use(express.json());
+app.use(cors());
+app.use(express.json());
 
 //serve uploaded models as static files
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
