@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://threed-product-viewer-backend.onrender.com",
-  timeout: 10000,
+  timeout: 60000,
 });
 
 export const uploadModel = (formData) =>

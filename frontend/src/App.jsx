@@ -62,7 +62,7 @@ if (ext !== "glb" && ext !== "gltf") {
 
     try {
       const res = await uploadModel(formData);
-      setModelUrl(`http://localhost:5000${res.data.url}`);
+      setModelUrl(`https://threed-product-viewer-backend.onrender.com${res.data.url}`);
     } catch (error) {
       console.log("Upload error", error);
     }
