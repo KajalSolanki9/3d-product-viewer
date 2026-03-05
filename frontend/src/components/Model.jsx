@@ -30,8 +30,8 @@ return (
 <primitive object={scene} />
 
 {/*HOTSPOTS */}
-<Hotspot position={[0, 1, 0]} label="Ergonomic Back Support" />
-<Hotspot position={[0, 0.4, 0]} label="Premium Cushion Seat" />
+<Hotspot position={[0, 1, 0]} label="Back Support" />
+<Hotspot position={[0, 0.4, 0]} label="Cushion Seat" />
     </>
   );
 }
