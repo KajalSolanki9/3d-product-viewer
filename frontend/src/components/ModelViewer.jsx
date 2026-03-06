@@ -8,14 +8,14 @@ export default function ModelViewer({ modelUrl, bgColor, wireframe }) {
   return (
     <div className="w-full lg:w-[600px] aspect-square rounded-xl overflow-hidden border shadow-md">
 
-      <Canvas camera={{ position: [0, 1.5, 4], fov: 50 }}>
+      <Canvas camera={{ position: [0, 2, 8], fov: 50 }}>
 
         {/* background */}
         <color attach="background" args={[bgColor]} />
 
         {/* lighting */}
-        <ambientLight intensity={1.5} />
-        <directionalLight position={[5,5,5]} intensity={2} />
+     <ambientLight intensity={3} />
+<directionalLight position={[5,5,5]} intensity={4} />
 
         {/* environment reflection */}
         <Environment preset="city" />
