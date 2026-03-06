@@ -39,4 +39,3 @@ export default function Model({ url, wireframe }) {
   );
 
 }
-useGLTF.preload();
