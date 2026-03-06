@@ -19,25 +19,20 @@ export default function Model({ url, wireframe }) {
   }, [scene, wireframe]);
 
   // center & scale
-  useEffect(() => {
-    console.log("Model loaded:", scene);
+ useEffect(() => {
 
-    const box = new THREE.Box3().setFromObject(scene);
-    const size = box.getSize(new THREE.Vector3());
-    const center = box.getCenter(new THREE.Vector3());
+  const box = new THREE.Box3().setFromObject(scene);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
 
-    scene.position.sub(center);
+  scene.position.sub(center);
 
-   const maxDim = Math.max(size.x, size.y, size.z);
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const scale = maxDim === 0 ? 1 : 5 / maxDim;
 
-// better scale
-const scale = maxDim === 0 ? 1 : 1 / maxDim;
-scene.scale.setScalar(scale);
+  scene.scale.setScalar(scale);
 
-// thoda neeche shift
-scene.position.y -= 0.5;
-
-  }, [scene]);
+}, [scene]);
 
 return (
   <>
