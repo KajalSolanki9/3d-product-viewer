@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { OrbitControls} from "@react-three/drei";
 import { Suspense } from "react";
 import Model from "./Model";
 import Loader from "./Loader";
@@ -8,36 +8,24 @@ export default function ModelViewer({ modelUrl, bgColor, wireframe }) {
   return (
     <div className="w-full lg:w-[600px] aspect-square rounded-xl overflow-hidden border shadow-md">
 
-      <Canvas camera={{ position: [0, 1, 2], fov: 50 }}>
+      <Canvas camera={{ position: [0, 1, 3], fov: 50 }}>
 
-        {/* background */}
-        <color attach="background" args={[bgColor]} />
+  <ambientLight intensity={0.7} />
+  <directionalLight position={[5, 5, 5]} />
 
-        {/* lighting */}
-     <ambientLight intensity={3} />
-<directionalLight position={[5,5,5]} intensity={4} />
+  <Suspense fallback={<span>Loading...</span>}>
+    <Model url={modelUrl} />
+  </Suspense>
 
-        {/* environment reflection */}
-        <Environment preset="city" />
+ <OrbitControls
+  enablePan
+  enableZoom
+  enableRotate
+  minDistance={1}
+  maxDistance={10}
+/>
 
-        {/* camera controls */}
-        <OrbitControls
-          enablePan
-          enableZoom
-          enableRotate
-          maxDistance={10}
-          minDistance={1}
-        />
-
-        {/* model loading */}
-        <Suspense fallback={<Loader />}>
-          {modelUrl && (
-            <Model url={modelUrl} wireframe={wireframe} />
-          )}
-        </Suspense>
-
-      </Canvas>
-
+</Canvas>
     </div>
   );
 }
