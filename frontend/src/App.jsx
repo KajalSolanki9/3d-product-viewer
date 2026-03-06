@@ -66,6 +66,7 @@ if (ext !== "glb" && ext !== "gltf") {
       console.log(res.data);
 
       setModelUrl(`${API_URL}${res.data.url}`);
+      console.log("Model URL:", `${API_URL}${res.data.url}`);
     } catch (error) {
       console.log("Upload error", error);
     }
