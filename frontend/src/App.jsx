@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import ModelViewer from "./components/ModelViewer";
 import Controls from "./components/Controls";
 import { uploadModel, saveSettings, getSettings } from "./services/api";
-const API_URL = import.meta.env.VITE_API_URL;
 function App() {
   const [modelUrl, setModelUrl] = useState(null);
   const [bgColor, setBgColor] = useState("#ffffff");
   const [wireframe, setWireframe] = useState(false);
-
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("API URL:", API_URL);
 //Settings Load From Backend
   useEffect(() => {
     const loadSettings = async () => {
