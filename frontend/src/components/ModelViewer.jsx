@@ -19,8 +19,8 @@ export default function ModelViewer({ modelUrl, bgColor, wireframe }) {
 
         <OrbitControls enablePan enableZoom enableRotate />
 
-        <Suspense fallback={null}>
-          {modelUrl && <Model url={modelUrl} wireframe={wireframe} />}
+<Suspense fallback={<span>Loading 3D Model...</span>}>     
+     {modelUrl && <Model url={modelUrl} wireframe={wireframe} />}
         </Suspense>
 
       </Canvas>

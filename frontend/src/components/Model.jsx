@@ -37,4 +37,6 @@ export default function Model({ url, wireframe }) {
       <Hotspot position={[0, 0.4, 0]} label="Cushion Seat" />
     </>
   );
+
 }
+useGLTF.preload(url);

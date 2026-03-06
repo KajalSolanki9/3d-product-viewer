@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ModelViewer from "./components/ModelViewer";
 import Controls from "./components/Controls";
 import { uploadModel, saveSettings, getSettings } from "./services/api";
+const API_URL = import.meta.env.VITE_API_URL;
 function App() {
   const [modelUrl, setModelUrl] = useState(null);
   const [bgColor, setBgColor] = useState("#ffffff");
@@ -64,7 +65,7 @@ if (ext !== "glb" && ext !== "gltf") {
       const res = await uploadModel(formData);
       console.log(res.data);
 
-      setModelUrl(`https://threed-product-viewer-backend.onrender.com${res.data.url}`);
+      setModelUrl(`${API_URL}${res.data.url}`);
     } catch (error) {
       console.log("Upload error", error);
     }
