@@ -13,7 +13,7 @@ export default function ModelViewer({ modelUrl, bgColor, wireframe }) {
   <ambientLight intensity={0.7} />
   <directionalLight position={[5, 5, 5]} />
 
-  <Suspense fallback={<span>Loading...</span>}>
+  <Suspense fallback={<Html center>Loading...</Html>}>
     <Model url={modelUrl} />
   </Suspense>
 
@@ -21,8 +21,7 @@ export default function ModelViewer({ modelUrl, bgColor, wireframe }) {
   enablePan
   enableZoom
   enableRotate
-  minDistance={1}
-  maxDistance={10}
+
 />
 
 </Canvas>
