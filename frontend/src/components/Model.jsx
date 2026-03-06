@@ -7,26 +7,31 @@ export default function Model({ url, wireframe }) {
 
   const { scene } = useGLTF(url);
 
-  // wireframe control
   useEffect(() => {
+
     scene.traverse((child) => {
       if (child.isMesh) {
         child.material.wireframe = wireframe;
         child.material.needsUpdate = true;
       }
     });
+
   }, [scene, wireframe]);
 
-  // center and scale model
   useEffect(() => {
 
     const box = new THREE.Box3().setFromObject(scene);
     const size = box.getSize(new THREE.Vector3());
     const center = box.getCenter(new THREE.Vector3());
-    scene.position.sub(center);
+
+    scene.position.x -= center.x;
+    scene.position.y -= center.y;
+    scene.position.z -= center.z;
+
     const maxDim = Math.max(size.x, size.y, size.z);
-    const scale = maxDim === 0 ? 1 : 2.5 / maxDim;
-    scene.scale.setScalar(scale);
+    const scale = 2 / maxDim;
+
+    scene.scale.set(scale, scale, scale);
 
   }, [scene]);
 
@@ -37,5 +42,5 @@ export default function Model({ url, wireframe }) {
       <Hotspot position={[0, 0.4, 0]} label="Cushion Seat" />
     </>
   );
-
 }
+useGLTF.preload("/model.glb");
