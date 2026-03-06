@@ -8,7 +8,7 @@ export default function ModelViewer({ modelUrl, bgColor, wireframe }) {
   return (
     <div className="w-full lg:w-[600px] aspect-square rounded-xl overflow-hidden border shadow-md">
 
-      <Canvas camera={{ position: [0, 2, 8], fov: 50 }}>
+      <Canvas camera={{ position: [0, 1, 2], fov: 50 }}>
 
         {/* background */}
         <color attach="background" args={[bgColor]} />

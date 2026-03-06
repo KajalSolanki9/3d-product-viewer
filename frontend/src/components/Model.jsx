@@ -28,7 +28,7 @@ export default function Model({ url, wireframe }) {
   scene.position.sub(center);
 
   const maxDim = Math.max(size.x, size.y, size.z);
-  const scale = maxDim === 0 ? 1 : 5 / maxDim;
+  const scale = maxDim === 0 ? 1 : 15 / maxDim;
 
   scene.scale.setScalar(scale);
 
